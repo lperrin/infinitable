@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>infiniTable</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/demo.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/sorted.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <script type="text/javascript" src="jquery.infinitable.js"></script>
+  </head>
+  <body>
+    <p>
+      <h1>infiniTable Demo</h1>
+      Though this random table is very long, scrolling is smooth because offscreen cells do not appear in the DOM. It uses an MVC pattern similar to what you have on iOS.
+      <ul>
+        <li>Click on a header (ID, Value, String) to sort the table.</li>
+        <li>It is possible to hide cells that do not match a predicate.</li>
+        <li>The table can be updated dynamically.</li>
+      </ul>
+      Show only cells whose string contain: <input type="text" id="filter">
+    </p>
+    <table class="table" id="list">
+      <tr><th>ID</th><th>Value</th><th>String</th></tr>
+    </table>
+  </body>
+</html>

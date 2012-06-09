@@ -1,0 +1,20 @@
+body {
+  padding: 10px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 30px;
+}
+
+ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+th {
+  cursor: pointer;
+}
