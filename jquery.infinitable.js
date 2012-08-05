@@ -308,6 +308,9 @@
     this.elements = {};
     this.transform = sorted([], this.comparator);
     this.length = 0;
+    
+    if(typeof(elements) === 'function')
+      elements = elements();
 
     for(var i = 0, l = elements.length; i < l; i++) {
       var elem = elements[i];
