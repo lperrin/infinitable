@@ -2,8 +2,7 @@ $(document).ready(function() {
   $('#list').infiniTable({
     cellHeight: 50,
     model: makeModel(),
-    sortColumn: 'id',
-    render: renderCell
+    sortColumn: 'id'
   });
 
   $('#list').on('click', 'th', function() {

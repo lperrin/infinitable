@@ -28,6 +28,19 @@
           settings.sortColumn, settings.sortAscending
         );
 
+        settings.render = settings.render || function defaultRender(data) {
+          var cell = $('<tr>');
+
+          for(var prop in data) {
+            if(!data.hasOwnProperty(prop) || prop === '_index')
+              continue;
+
+            cell.append($('<td>').html(data[prop]));
+          }
+
+          return cell;
+        }
+
         data = {
           settings: settings,
           model: model,
@@ -267,7 +280,7 @@
 
   function makeComparator(options) {
     return function(a, b) {
-      this.column = options.column || 'id';
+      this.column = options.column;
       this.ascending = options.ascending !== false;
 
       var ca = a[this.column], cb = b[this.column];
@@ -301,7 +314,7 @@
 
   var Model = function(elements, sortColumn, sortAscending) {
     this.comparator = makeComparator({
-      column: sortColumn,
+      column: sortColumn || '_index',
       ascending: sortAscending
     });
     this.filterPredicate = makeFilter(null, null);
@@ -314,6 +327,7 @@
 
     for(var i = 0, l = elements.length; i < l; i++) {
       var elem = elements[i];
+      elem._index = i; // mark the original order to be able to restore it later
       this.insert(elem);
     }
   };

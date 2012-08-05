@@ -19,13 +19,11 @@ To activate the plugin, you need to pass several options:
 $('#list').infiniTable({
   cellHeight: 50,
   model: getModel(),
-  sortColumn: 'id',
-  render: renderRow
+  render: renderRow // optional
 });
 ```
 
-`model` is either a JavaScript array or a function that returns a JavaScript array. Each element of
-the array will be rendered to a cell by the `render` function. Cell models can take any form you want:
+`model` is either an array of object or a function that returns one:
 
 ```javascript
 var model = [
@@ -47,7 +45,7 @@ var model = [
 ];
 ```
 
-You must also provide the `render` function, which generates a DOM node with the model. For example:
+You can optionally provide a custom `render` function, which generates a DOM node with the model. For example:
 
 ```javascript
 function renderRow(data) {
