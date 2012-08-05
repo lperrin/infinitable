@@ -25,7 +25,27 @@ $('#list').infiniTable({
 ```
 
 `model` is either a JavaScript array or a function that returns a JavaScript array. Each element of
-the array will be rendered to a cell by the `render` function. Cell models can take any form you want.
+the array will be rendered to a cell by the `render` function. Cell models can take any form you want:
+
+```javascript
+var model = [
+  {
+    id: 1,
+    name: 'Albert Einstein',
+    birth: '1879-03-14'
+  },
+  {
+    id: 2,
+    name: 'Isaac Newton',
+    birth: '1643-01-04'
+  },
+  {
+    id: 3,
+    name: 'Johannes Kepler',
+    birth: '1571-12-27'
+  }
+];
+```
 
 You must also provide the `render` function, which generates a DOM node with the model. For example:
 
@@ -33,8 +53,8 @@ You must also provide the `render` function, which generates a DOM node with the
 function renderRow(data) {
   return $('<tr>')
     .append($('<td>').html(data.id))
-    .append($('<td>').html(data.value))
-    .append($('<td>').html(data.string));
+    .append($('<td>').html(data.name))
+    .append($('<td>').html(data.birth));
 }
 ```
 
