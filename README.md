@@ -24,7 +24,10 @@ $('#list').infiniTable({
 });
 ```
 
-You must provide the `renderRow` function, which generates a DOM node with the model. For example:
+`model` is either a JavaScript array or a function that returns a JavaScript array. Each element of
+the array will be rendered to a cell by the `render` function. Cell models can take any form you want.
+
+You must also provide the `render` function, which generates a DOM node with the model. For example:
 
 ```javascript
 function renderRow(data) {
