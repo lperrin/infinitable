@@ -41,7 +41,7 @@
           return cell;
         }
 
-        settings.container = settings.container || window;
+        settings.container = settings.container ? $(settings.container) : window;
 
         data = {
           settings: settings,
