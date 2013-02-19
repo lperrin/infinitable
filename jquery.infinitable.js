@@ -8,7 +8,7 @@
       return methods.init.apply(this, arguments);
     } else {
       $.error('Method ' +  method + ' does not exist on jQuery.' + namespace);
-    }    
+    }
   }
 
   var methods = {
@@ -41,6 +41,8 @@
           return cell;
         }
 
+        settings.container = settings.container || window;
+
         data = {
           settings: settings,
           model: model,
@@ -58,8 +60,8 @@
           updateVisible.call(self, data);
         };
 
-        $(window).bind('resize', refreshHandler);
-        $(window).scroll(refreshHandler);
+        $(settings.container).bind('resize', refreshHandler);
+        $(settings.container).scroll(refreshHandler);
 
         forceRefresh.call(this, data);
       });
@@ -164,8 +166,9 @@
   }
 
   function getVisibles(data) {
-    var offset = $(window).scrollTop();
-    var range = $(window).height();
+    var settings = data.settings;
+    var offset = $(settings.container).scrollTop();
+    var range = $(settings.container).height();
 
     // strictly visible bounds
     var visibles = new Interval(
@@ -275,7 +278,7 @@
   Interval.prototype.each = function(fun) {
     for(var i = this.min; i < this.max; i += 1) {
       fun(i);
-    } 
+    }
   };
 
   function makeComparator(options) {
@@ -321,7 +324,7 @@
     this.elements = {};
     this.transform = sorted([], this.comparator);
     this.length = 0;
-    
+
     if(typeof(elements) === 'function')
       elements = elements();
 
@@ -636,3 +639,4 @@
     return x;
   };
 })(jQuery);
+
