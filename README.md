@@ -19,7 +19,8 @@ To activate the plugin, you need to pass several options:
 $('#list').infiniTable({
   cellHeight: 50,
   model: getModel(),
-  render: renderRow // optional
+  render: renderRow, // optional
+  container: "#parent" // optional
 });
 ```
 
@@ -55,6 +56,8 @@ function renderRow(data) {
     .append($('<td>').html(data.birth));
 }
 ```
+
+You can also optionally provide a `container` element (or selector) in case the scrolled list does not fill the window, but rather some e.g. absolutely positioned div.
 
 You can sort the table at any time:
 
